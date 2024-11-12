@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Персональный сайт</title>
+    <script>
+        async function sendData(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            
+            const response = await fetch("https://8f67-2607-740-65-1002-6306-b8a2-8e8e-a471.ngrok-free.app/api/send_data", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email: email, phone: phone })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const message = data.message;
+
+                document.getElementById("response-message").innerText = message;
+            } else {
+                document.getElementById("response-message").innerText = "Ошибка при отправке данных";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="main-content">
+        <h1 class="FIO lang--ru">
+            Сунцов Александр Андреевич
+        </h1>
+
+        <h1 class="FIO lang--en">
+            Suncov Alexander Andreevich
+        </h1>
+    
+        <img class="code_pic" src="code.png">
+    
+        <div>
+            <p class="AboutMe lang--ru">
+                Приветствую на моем сайте, Я студент 4 курса колледжа ВятГУ, обучаюсь по специальности 'Информационные системы и программирование'
+            </p>
+
+            <p class="AboutMe lang--en">
+               Welcome to my website, I am a 4th year student at VyatSU, studying 'Information Systems and Programming'
+            </p>
+        </div>
+    
+        <p class="projects">
+            <span class="proj lang--ru">Мои проекты: </span>
+            <a class="link_hex lang--ru" href="#block_hex">Игра “Гекс”</a><span class="zap lang--ru">,</span>
+            <a class="link_is lang--ru" href="#block_is">ИС для команд фанатского перевода комиксов</a>
+
+            <span class="proj lang--en">My projects: </span>
+            <a class="link_hex lang--en" href="#block_hex">Game "Hex"</a><span class="zap lang--en">,</span>
+            <a class="link_is lang--en" href="#block_is">IS for fan translation teams of comics</a>
+        </p>
+    
+        <div class="achieve">
+            <a class="achievement lang--ru" href="#block_dost">
+                Личное достижение
+            </a>
+
+            <a class="achievement lang--en" href="#block_dost">
+                Personal achievement
+            </a>
+        </div>
+        
+        <div class="communication">
+            <a class="social lang--ru" href="#footer">
+                Мои социальные сети для связи со мной
+            </a>
+
+            <a class="social lang--en" href="#footer">
+                My social networks to contact me
+            </a>
+        </div>
+        
+        <div id="block_hex">
+            <h1 class="hex lang--ru">
+                Игра "Гекс"
+            </h1>
+
+            <h1 class="hex lang--en">
+                Game "Hex"
+            </h1>
+    
+            <p class="about_hex lang--ru">
+                Игра "Гекс" — это моя первая разработка, в которой я сосредоточился на создании стратегии с элементами настольной логики.
+                Игра представляет собой поле в форме шестиугольников, на котором два игрока соревнуются за доминирование, поочередно занимая клетки.
+                Главная цель — соединить две противоположные стороны поля своей цепочкой.<br />
+                <a class="github_hex" href="https://github.com/darmu3/Hex_PyQt5">GitHub</a>
+            </p>
+
+            <p class="about_hex lang--en">
+                The game “Hex” is my first development, in which I focused on creating a strategy with elements of board logic.
+                The game is a hexagon-shaped field on which two players compete for dominance by alternately occupying cells.
+                The main goal is to connect two opposite sides of the field with their chain.<br />
+                <a class="github_hex" href="https://github.com/darmu3/Hex_PyQt5">GitHub</a>
+            </p>
+    
+            <div class="img_hex">
+                <img class="hex1" src="hex1.png" alt="">
+                <img class="hex2" src="hex2.png" alt="">
+            </div>
+        </div>
+    
+        <div id="block_is">
+            <h1 class="is lang--ru">
+                ИС для команд фанатского перевода комиксов
+            </h1>
+
+            <h1 class="is lang--en">
+                IS for fan translation teams of comics
+            </h1>
+    
+            <p class="about_is lang--ru">
+                Информационная система для команд фанатского перевода комиксов стала моей первой серьезной разработкой в составе команды из четырех человек. 
+                В рамках этого проекта я занимался разработкой пользовательского интерфейса и также принимал активное участие в разработке бэкенда.<br />
+                <a class="github_is" href="https://github.com/Resmko99/Is-for-translator/tree/Alexandr">GitHub</a>
+            </p>
+            
+            <p class="about_is lang--en">The information system for fan comic book translation teams was my first major development as part of a four-person team. 
+                As part of this project, I was involved in the development of the user interface and also took an active part in the backend development.<br />
+                <a class="github_is" href="https://github.com/Resmko99/Is-for-translator/tree/Alexandr">GitHub</a>
+            </p>
+    
+            <div class="img_is">
+                <img class="is1" src="Manga1.png" alt="">
+                <img class="is2" src="Manga2.png" alt="">
+            </div>
+        </div>
+
+        <div id="block_dost">
+            <h1 class="dost lang--ru">
+                Личное достижение
+            </h1>
+
+            <h1 class="dost lang--en">
+                Personal achievement
+            </h1>
+
+            <p class="about_dost lang--ru">
+                Одним из моих личных достижений является посещение киберспортивного турнира, 
+                где я имел возможность наблюдать за игрой команды Team Spirit по CS вживую, а также сделал фотографию с игроком <b><i>sdy</i></b>.
+            </p>
+
+            <p class="about_dost lang--en">
+                One of my personal achievements is attending a cyber sports tournament, 
+                where I had the opportunity to watch Team Spirit's CS team play live and also took a photo with <b><i>sdy</i></b>.
+            </p>
+
+            <div class="img_dost">
+                <img class="dost_img" src="SQ-sl-Son-s.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="contact-form" id="contact-form">
+            <p for="email">Email:</p>
+            <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+            <p for="phone">Phone:</p>
+            <input type="tel" id="phone" name="phone" placeholder="Введите ваш номер телефона" required>
+            <p></p>
+            <button onclick="sendData(event)">Отправить</button>
+        </div>
+        
+        <div class="response">
+            <p id="response-message"></p>
+        </div>        
+    </div>
+    
+
+    <footer id="footer" class="footer">
+        <div class="footer_text">
+            <p class="footer_p lang--ru">
+                Социальные сети для связи со мной:
+            </p>
+
+            <p class="footer_p lang--en">
+                Social networks to contact me:
+            </p>
+        </div>
+        <div class="soc">
+            <a href="https://vk.com/id197758478">
+                <img class="VK" src="VK Logo White.png" alt="VK">
+            </a>
+            <a href="https://t.me/jojotachi">
+                <img class="TG" src="icons8-телеграм-96.png" alt="Telegram">
+            </a>
+        </div>
+
+        <p class="languages">
+            <a class="Ru active" href="#" onclick="changeLanguage('ru')">Ru</a> | 
+            <a class="En" href="#" onclick="changeLanguage('en')">En</a>
+        </p>
+    </footer>
+
+    <script>
+        function changeLanguage(lang) {
+            document.documentElement.classList.toggle('lang-en', lang === 'en');
+
+            document.querySelector('.languages .Ru').classList.remove('active');
+            document.querySelector('.languages .En').classList.remove('active');
+            
+            if (lang === 'ru') {
+                document.querySelector('.languages .Ru').classList.add('active');
+            } else {
+                document.querySelector('.languages .En').classList.add('active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const defaultLang = document.documentElement.classList.contains('lang-en') ? 'en' : 'ru';
+            changeLanguage(defaultLang);
+        });
+    </script>
+</body>
+</html>
